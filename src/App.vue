@@ -5,7 +5,11 @@
     <div class="main-content">
 
       <div class="container">
-        <router-view/>
+        <transition
+          name="page"
+          mode="out-in">
+          <router-view/>
+        </transition>
       </div>
 
     </div>
@@ -22,8 +26,9 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
 @import './assets/styles/global.css';
+@import './assets/styles/transitions.css';
 
 .main-content {
   margin-top: 150px;

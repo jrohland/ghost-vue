@@ -1,7 +1,9 @@
 <template>
   <div class="column is-one-third">
 
-    <div class="post standard-shadow">
+    <div
+      class="post standard-shadow"
+      @click="navigateToPost">
 
       <div
         :style="featuredImageStyle"
@@ -39,6 +41,17 @@ export default {
         return styles
       }
     }
+  },
+
+  methods: {
+    navigateToPost () {
+      this.$router.push({
+        name: 'post',
+        params: {
+          id: this.post.id
+        }
+      })
+    }
   }
 }
 </script>
@@ -46,6 +59,10 @@ export default {
 <style scoped>
 .post {
   height: 520px;
+}
+
+.post:hover {
+  cursor: pointer;
 }
 
 .featured-image {
