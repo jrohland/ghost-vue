@@ -21,9 +21,7 @@ export default {
   async mounted () {
     Ghost.getPosts({ limit: 2 })
       .then(posts => {
-        posts.forEach(post => {
-          this.posts.push(post)
-        })
+        this.posts = posts
       })
       .catch(error => {
         console.log(error)
