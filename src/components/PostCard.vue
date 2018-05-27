@@ -48,7 +48,8 @@ export default {
       this.$router.push({
         name: 'post',
         params: {
-          id: this.post.id
+          id: this.post.id,
+          slug: this.post.slug
         }
       })
     }

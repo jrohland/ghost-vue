@@ -14,7 +14,7 @@ export default new Router({
       alias: '/'
     },
     {
-      path: '/post/:id',
+      path: '/post/:slug',
       name: 'post',
       component: Post
     }
