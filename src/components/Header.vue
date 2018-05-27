@@ -25,7 +25,7 @@ export default {
       get () {
         const classes = ['navbar', 'is-fixed-top']
 
-        if (this.scrollTop > 100) classes.push('scrolled', 'standard-shadow')
+        if (this.scrollTop > 50) classes.push('scrolled', 'standard-shadow')
 
         return classes
       }
