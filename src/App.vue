@@ -27,6 +27,5 @@ export default {
 
 .main-content {
   margin-top: 150px;
-  height: 3000px;
 }
 </style>
