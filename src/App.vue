@@ -2,8 +2,12 @@
   <div id="app">
     <app-header />
 
-    <div class="container">
-      <router-view/>
+    <div class="main-content">
+
+      <div class="container">
+        <router-view/>
+      </div>
+
     </div>
 
   </div>
@@ -21,8 +25,8 @@ export default {
 <style lang="scss">
 @import './assets/styles/global.css';
 
-.container {
-  margin-top: 80px;
+.main-content {
+  margin-top: 150px;
   height: 3000px;
 }
 </style>
