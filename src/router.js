@@ -9,13 +9,12 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/posts',
+      path: '/',
       name: 'posts',
-      component: Posts,
-      alias: '/'
+      component: Posts
     },
     {
-      path: '/post/:slug',
+      path: '/:slug',
       name: 'post',
       component: Post,
       props: true
