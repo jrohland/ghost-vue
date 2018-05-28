@@ -63,5 +63,20 @@ export default {
   height: 60px !important;
   line-height: 60px !important;
   border-bottom: 1px solid var(--border-color);
+  background-color: #fff;
+  opacity: .8;
+}
+
+.navbar-brand {
+  margin: auto;
+}
+
+.title {
+  font-size: 4rem;
+  transition: font-size .5s;
+}
+
+.navbar.scrolled .title {
+  font-size: 2rem;
 }
 </style>
