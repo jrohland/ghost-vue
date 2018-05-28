@@ -1,16 +1,14 @@
 import _ from 'lodash'
+import local from './local'
 
 const context = require.context('.', false, /\.js$/)
 const config = {}
 context.keys().forEach((file) => {
   const key = file.replace('./', '').replace('.js', '')
-  if (!_.includes(['index', 'local'], key)) config[key] = context(file)
+  if (!_.includes(['index', 'local'], key)) config[key] = context(file).default
 })
 
-// Attempt to load local config
-try {
-  _.merge(config, require('./local'))
-} catch (err) {}
+_.merge(config, local)
 
 export const { ghost } = config
 export default config
