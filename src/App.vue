@@ -5,11 +5,36 @@
     <div class="main-content">
 
       <div class="container">
-        <transition
-          name="page"
-          mode="out-in">
-          <router-view/>
-        </transition>
+
+        <div class="columns">
+
+          <transition
+            name="page"
+            mode="out-in">
+            <router-view class="column" />
+          </transition>
+
+          <div class="is-one-fifth side-bar">
+            <div class="subscribe text-align-center">
+              <div class="title">Subscribe</div>
+              Keep up to date.
+
+              <b-field>
+                <b-input
+                  v-model="subscribeEmail"
+                  placeholder="Email"
+                  type="email"
+                  rounded />
+              </b-field>
+
+              <a
+                class="button is-primary"
+                @click="subscribe">Sign Up</a>
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
     </div>
@@ -22,6 +47,18 @@ import Header from '@/components/Header'
 export default {
   components: {
     'app-header': Header
+  },
+
+  data () {
+    return {
+      subscribeEmail: ''
+    }
+  },
+
+  methods: {
+    subscribe () {
+      console.log(this.subscribeEmail)
+    }
   }
 }
 </script>
@@ -31,6 +68,6 @@ export default {
 @import './assets/styles/transitions.css';
 
 .main-content {
-  margin-top: 150px;
+  margin-top: 155px;
 }
 </style>
