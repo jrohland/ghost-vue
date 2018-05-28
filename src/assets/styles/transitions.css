@@ -1,10 +1,9 @@
 .page-enter-active {
-  animation: coming 1s;
-  animation-delay: .5s;
+  animation: coming .5s;
   opacity: 0;
 }
 .page-leave-active {
-  animation: going 1s;
+  animation: going .5s;
 }
 
 @keyframes going {
@@ -18,11 +17,11 @@
 }
 @keyframes coming {
   from {
-    transform: translateX(-50px);
+    transform: scale(0);
     opacity: 0;
   }
   to {
-    transform: translateX(0);
+    transform: scale(1);
     opacity: 1;
   }
 }
