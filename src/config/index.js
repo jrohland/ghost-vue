@@ -1,14 +1,14 @@
-import _ from 'lodash'
+import merge from 'deepmerge'
 import local from './local'
 
 const context = require.context('.', false, /\.js$/)
-const config = {}
+const defaultConfig = {}
 context.keys().forEach((file) => {
   const key = file.replace('./', '').replace('.js', '')
-  if (!_.includes(['index', 'local'], key)) config[key] = context(file).default
+  if (['index', 'local'].indexOf(key) === -1) defaultConfig[key] = context(file).default
 })
 
-_.merge(config, local)
+const config = merge(defaultConfig, local)
 
 export const { ghost } = config
 export default config
