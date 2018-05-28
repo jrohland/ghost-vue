@@ -15,22 +15,7 @@
           </transition>
 
           <div class="is-one-fifth side-bar">
-            <div class="subscribe text-align-center">
-              <div class="title">Subscribe</div>
-              Keep up to date.
-
-              <b-field>
-                <b-input
-                  v-model="subscribeEmail"
-                  placeholder="Email"
-                  type="email"
-                  rounded />
-              </b-field>
-
-              <a
-                class="button is-primary"
-                @click="subscribe">Sign Up</a>
-            </div>
+            <subscribe />
           </div>
 
         </div>
@@ -44,21 +29,12 @@
 
 <script>
 import Header from '@/components/Header'
+import Subscribe from '@/components/Subscribe'
+
 export default {
   components: {
-    'app-header': Header
-  },
-
-  data () {
-    return {
-      subscribeEmail: ''
-    }
-  },
-
-  methods: {
-    subscribe () {
-      console.log(this.subscribeEmail)
-    }
+    'app-header': Header,
+    'subscribe': Subscribe
   }
 }
 </script>

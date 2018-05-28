@@ -63,5 +63,21 @@ export default {
         })
         .catch(error => reject(error))
     })
+  },
+
+  async addSubscription (data) {
+    if (!window.ghost) await init()
+
+    return new Promise((resolve, reject) => {
+      Vue.http
+        .post(window.ghost.url.api('subscribers/'), {
+          subscribers: [ data ]
+        })
+        .then(result => {
+          console.log(result.body)
+          resolve()
+        })
+        .catch(error => reject(error))
+    })
   }
 }
