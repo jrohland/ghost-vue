@@ -6,7 +6,9 @@
     aria-label="main navigation">
 
     <div class="navbar-brand">
-      Header
+      <div class="title">
+        <router-link :to="{ name: 'posts' }">Blog Title</router-link>
+      </div>
     </div>
 
   </nav>
