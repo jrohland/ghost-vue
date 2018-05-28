@@ -16,7 +16,8 @@ export default new Router({
     {
       path: '/post/:slug',
       name: 'post',
-      component: Post
+      component: Post,
+      props: true
     }
   ]
 })

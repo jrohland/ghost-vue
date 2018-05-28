@@ -47,5 +47,21 @@ export default {
         })
         .catch(error => reject(error))
     })
+  },
+
+  async getPostBySlug (slug) {
+    if (!window.ghost) await init()
+
+    console.log('getting post: ' + slug)
+
+    return new Promise((resolve, reject) => {
+      Vue.http
+        .get(window.ghost.url.api('posts/slug/' + slug))
+        .then(result => {
+          if (!result.body.posts || result.body.posts.length !== 1) reject(new Error('Post not found'))
+          resolve(result.body.posts[0])
+        })
+        .catch(error => reject(error))
+    })
   }
 }
