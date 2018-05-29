@@ -1,7 +1,19 @@
 <template>
   <div>
     <div
-      v-if="isLoaded"
+      v-if="loadError"
+      class="notification is-danger text-align-center">
+
+      <div class="title">Couldn't load posts!</div>
+
+      <div v-if="loadError.errors && loadError.errors.length">
+        {{ loadError.errors[0].message }}
+      </div>
+
+    </div>
+
+    <div
+      v-else-if="isLoaded"
       class="posts columns is-multiline">
 
       <post-card
@@ -36,6 +48,7 @@ export default {
   data () {
     return {
       isLoaded: false,
+      loadError: null,
       posts: []
     }
   },
@@ -47,7 +60,7 @@ export default {
         this.isLoaded = true
       })
       .catch(error => {
-        console.log(error)
+        this.loadError = error.body
       })
   }
 }

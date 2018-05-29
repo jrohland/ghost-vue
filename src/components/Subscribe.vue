@@ -1,7 +1,18 @@
 <template>
   <div class="subscribe text-align-center">
+    <div
+      v-if="subscribeError"
+      class="notification is-danger text-align-center">
 
-    <div v-if="!isSubscribed">
+      <div class="title">Couldn't subscribe!</div>
+
+      <div v-if="subscribeError.errors && subscribeError.errors.length">
+        {{ subscribeError.errors[0].message }}
+      </div>
+
+    </div>
+
+    <div v-else-if="!isSubscribed">
       <div class="title">Subscribe</div>
       Keep up to date.
 
@@ -33,6 +44,7 @@ export default {
   data () {
     return {
       isSubscribed: false,
+      subscribeError: null,
       subscribeEmail: ''
     }
   },
@@ -46,7 +58,7 @@ export default {
           this.isSubscribed = true
         })
         .catch(error => {
-          console.log(error)
+          this.subscribeError = error.body
         })
     }
   }

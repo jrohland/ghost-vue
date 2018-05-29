@@ -1,6 +1,18 @@
 <template>
   <div>
-    <div v-if="isLoaded">
+    <div
+      v-if="loadError"
+      class="notification is-danger text-align-center">
+
+      <div class="title">Couldn't load post!</div>
+
+      <div v-if="loadError.errors && loadError.errors.length">
+        {{ loadError.errors[0].message }}
+      </div>
+
+    </div>
+
+    <div v-else-if="isLoaded">
       <div
         v-if="post.feature_image"
         :style="featuredImageStyle"
@@ -55,6 +67,7 @@ export default {
   data () {
     return {
       isLoaded: false,
+      loadError: null,
       post: {}
     }
   },
@@ -72,7 +85,6 @@ export default {
   },
 
   mounted () {
-    console.log(this.slug)
     if (this.slug) {
       Ghost.getPostBySlug(this.slug)
         .then(post => {
@@ -80,7 +92,7 @@ export default {
           this.isLoaded = true
         })
         .catch(error => {
-          console.log(error)
+          this.loadError = error.body
         })
     }
   }
