@@ -16,7 +16,7 @@
       </div>
 
       <div
-        class="post-body"
+        class="post-body content"
         v-html="post.html" />
 
     </div>
