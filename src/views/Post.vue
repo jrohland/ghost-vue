@@ -1,25 +1,38 @@
 <template>
   <div>
-    <div
-      v-if="post.feature_image"
-      :style="featuredImageStyle"
-      class="featured-image" />
-
-    <div class="post standard-shadow">
-
-      <div class="date text-align-center">
-        {{ post.created_at | date }}
-      </div>
-
-      <div class="title text-align-center">
-        {{ post.title }}
-      </div>
-
+    <div v-if="isLoaded">
       <div
-        class="post-body content"
-        v-html="post.html" />
+        v-if="post.feature_image"
+        :style="featuredImageStyle"
+        class="featured-image" />
+
+      <div class="post standard-shadow">
+
+        <div class="date text-align-center">
+          {{ post.created_at | date }}
+        </div>
+
+        <div class="title text-align-center">
+          {{ post.title }}
+        </div>
+
+        <div
+          class="post-body content"
+          v-html="post.html" />
+
+      </div>
+    </div>
+
+    <div
+      v-else
+      class="h-100">
+
+      <loading-spinner
+        :size="200"
+        class="spinner" />
 
     </div>
+
   </div>
 </template>
 
@@ -41,6 +54,7 @@ export default {
 
   data () {
     return {
+      isLoaded: false,
       post: {}
     }
   },
@@ -63,6 +77,7 @@ export default {
       Ghost.getPostBySlug(this.slug)
         .then(post => {
           this.post = post
+          this.isLoaded = true
         })
         .catch(error => {
           console.log(error)
@@ -89,5 +104,11 @@ export default {
   margin: -100px auto 0 auto;
   min-height: 200px;
   padding: 30px;
+}
+
+.spinner {
+  margin: auto;
+  position: relative;
+  top: calc(50% - 200px);
 }
 </style>

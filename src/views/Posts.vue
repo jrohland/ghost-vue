@@ -1,10 +1,25 @@
 <template>
-  <div class="posts columns is-multiline">
+  <div>
+    <div
+      v-if="isLoaded"
+      class="posts columns is-multiline">
 
-    <post-card
-      v-for="post in posts"
-      :key="post.id"
-      :post="post" />
+      <post-card
+        v-for="post in posts"
+        :key="post.id"
+        :post="post" />
+
+    </div>
+
+    <div
+      v-else
+      class="h-100">
+
+      <loading-spinner
+        :size="200"
+        class="spinner" />
+
+    </div>
 
   </div>
 </template>
@@ -20,6 +35,7 @@ export default {
 
   data () {
     return {
+      isLoaded: false,
       posts: []
     }
   },
@@ -28,6 +44,7 @@ export default {
     Ghost.getPosts({ limit: 9 })
       .then(posts => {
         this.posts = posts
+        this.isLoaded = true
       })
       .catch(error => {
         console.log(error)
@@ -37,5 +54,9 @@ export default {
 </script>
 
 <style scoped>
-
+.spinner {
+  margin: auto;
+  position: relative;
+  top: calc(50% - 200px);
+}
 </style>

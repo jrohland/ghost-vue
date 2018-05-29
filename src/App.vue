@@ -1,17 +1,20 @@
 <template>
-  <div id="app">
+  <div
+    id="app"
+    class="h-100">
+
     <app-header />
 
-    <div class="main-content">
+    <div class="main-content h-100">
 
-      <div class="container">
+      <div class="container h-100">
 
-        <div class="columns">
+        <div class="columns h-100">
 
           <transition
             name="page"
             mode="out-in">
-            <router-view class="column" />
+            <router-view class="main-column column  h-100" />
           </transition>
 
           <div class="is-one-fifth side-bar">
@@ -45,6 +48,6 @@ export default {
 @import './assets/styles/transitions.css';
 
 .main-content {
-  margin-top: 155px;
+  padding-top: 155px;
 }
 </style>

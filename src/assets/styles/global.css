@@ -8,6 +8,7 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--text-color);
+  height: 100%;
 }
 
 .standard-shadow {
@@ -18,4 +19,8 @@ html, body {
 
 .text-align-center {
   text-align: center;
+}
+
+.h-100 {
+  height: 100%;
 }

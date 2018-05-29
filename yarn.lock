@@ -4793,7 +4793,7 @@ node-pre-gyp@^0.10.0:
     semver "^5.3.0"
     tar "^4"
 
-node-sass@^4.9.0:
+node-sass@^4.5.3, node-sass@^4.9.0:
   version "4.9.0"
   resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.9.0.tgz#d1b8aa855d98ed684d6848db929a20771cc2ae52"
   dependencies:
@@ -6145,6 +6145,16 @@ sass-graph@^2.2.4:
     scss-tokenizer "^0.2.3"
     yargs "^7.0.0"
 
+sass-loader@^6.0.6:
+  version "6.0.7"
+  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-6.0.7.tgz#dd2fdb3e7eeff4a53f35ba6ac408715488353d00"
+  dependencies:
+    clone-deep "^2.0.1"
+    loader-utils "^1.0.1"
+    lodash.tail "^4.1.1"
+    neo-async "^2.5.0"
+    pify "^3.0.0"
+
 sass-loader@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-7.0.1.tgz#fd937259ccba3a9cfe0d5f8a98746d48adfcc261"
@@ -7078,6 +7088,14 @@ vue-loader@^15.1.0:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
+vue-loading-spinner@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/vue-loading-spinner/-/vue-loading-spinner-1.0.11.tgz#43bae9b034b84db374e70201c706e4f145bb0dec"
+  dependencies:
+    node-sass "^4.5.3"
+    sass-loader "^6.0.6"
+    vue "^2.3.3"
+
 vue-resource@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/vue-resource/-/vue-resource-1.5.1.tgz#0f3d685e3254d21800bebd966edcf56c34b3b6e4"
@@ -7106,7 +7124,7 @@ vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
 
-vue@^2.5.16:
+vue@^2.3.3, vue@^2.5.16:
   version "2.5.16"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
 
