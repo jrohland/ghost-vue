@@ -5,13 +5,13 @@
       <div class="title">Subscribe</div>
       Keep up to date.
 
-      <b-field>
-        <b-input
+      <div class="field">
+        <input
           v-model="subscribeEmail"
           placeholder="Email"
           type="email"
-          rounded />
-      </b-field>
+          class="input is-rounded">
+      </div>
 
       <a
         class="button is-primary"

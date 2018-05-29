@@ -40,6 +40,7 @@ export default {
 </script>
 
 <style>
+@import '~bulma/css/bulma.css';
 @import './assets/styles/global.css';
 @import './assets/styles/transitions.css';
 
