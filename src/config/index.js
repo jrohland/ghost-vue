@@ -10,5 +10,5 @@ context.keys().forEach((file) => {
 
 const config = merge(defaultConfig, local)
 
-export const { ghost } = config
+export const { app, ghost } = config
 export default config
