@@ -59,7 +59,8 @@ export default {
 
 <style scoped>
 .post {
-  height: 520px;
+  min-height: 520px;
+  padding-bottom: 10px;
 }
 
 .post:hover {
