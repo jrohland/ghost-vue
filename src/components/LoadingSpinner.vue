@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { Circle5 } from 'vue-loading-spinner'
+import Circle5 from 'vue-loading-spinner/src/components/Circle5'
 
 export default {
   components: {
