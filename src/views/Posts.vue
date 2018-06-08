@@ -12,14 +12,24 @@
 
     </div>
 
-    <div
-      v-else-if="isLoaded"
-      class="posts columns is-multiline">
+    <div v-else-if="isLoaded">
 
-      <post-card
-        v-for="post in posts"
-        :key="post.id"
-        :post="post" />
+      <div
+        v-if="posts.length === 0"
+        class="text-align-center title">
+        No posts found
+      </div>
+
+      <div
+        v-else
+        class="posts columns is-multiline">
+
+        <post-card
+          v-for="post in posts"
+          :key="post.id"
+          :post="post" />
+
+      </div>
 
     </div>
 
