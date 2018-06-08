@@ -25,6 +25,7 @@ import config from '@/config'
 export default {
   data () {
     return {
+      headerHeight: 220,
       scrollTop: 0
     }
   },
@@ -34,7 +35,7 @@ export default {
       get () {
         const classes = ['navbar', 'is-fixed-top']
 
-        if (this.scrollTop > 50) classes.push('scrolled', 'standard-shadow')
+        if (this.scrollTop > this.headerHeight) classes.push('scrolled', 'standard-shadow')
 
         return classes
       }
@@ -72,7 +73,7 @@ export default {
 
 <style scoped>
 .navbar {
-  height: 150px;
+  height: var(--header-height);
   -webkit-transition: height .5s, line-height .5s, font-size .5s;
   transition: height .5s, line-height .5s, font-size .5s;
 }

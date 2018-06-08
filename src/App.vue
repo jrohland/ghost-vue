@@ -48,6 +48,6 @@ export default {
 @import './assets/styles/transitions.css';
 
 .main-content {
-  padding-top: 155px;
+  margin-top: var(--header-height);
 }
 </style>

@@ -3,6 +3,7 @@
   --border-color: #95989a;
   --header-title-color: #a78be3;
   --header-title-hover-color: #977bd3;
+  --header-height: 220px;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Caveat|Cormorant+Garamond');
