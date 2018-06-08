@@ -1,9 +1,11 @@
 :root {
   --text-color: #2c3e50;
   --border-color: #95989a;
+  --menu-icon-hover-color: #e4e4e4;
   --header-title-color: #a78be3;
   --header-title-hover-color: #977bd3;
   --header-height: 220px;
+  --header-scrolled-height: 60px;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Caveat|Cormorant+Garamond');
@@ -13,7 +15,6 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--text-color);
-  height: 100%;
 }
 
 .standard-shadow {
