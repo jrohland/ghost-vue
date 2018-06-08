@@ -97,8 +97,8 @@ export default {
   position: absolute;
   top: 0;
   right: 20px;
-  font-size: 50px;
-  line-height: 50px;
+  font-size: 70px;
+  line-height: 70px;
 }
 
 .links {
