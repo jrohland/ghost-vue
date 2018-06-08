@@ -36,8 +36,7 @@
     </div>
 
     <div
-      v-else
-      class="h-100">
+      v-else>
 
       <loading-spinner
         :size="200"
