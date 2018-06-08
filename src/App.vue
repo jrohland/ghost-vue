@@ -12,11 +12,15 @@
           <transition
             name="page"
             mode="out-in">
-            <router-view class="main-column column" />
+            <router-view
+              :key="$route.name + ($route.params.tag || $route.params.slug || '')"
+              class="main-column column" />
           </transition>
 
           <div class="is-one-fifth column side-bar">
-            <subscribe />
+            <subscribe class="subscribe-sidebar" />
+
+            <tags class="tags-sidebar" />
           </div>
 
         </div>
@@ -31,11 +35,13 @@
 <script>
 import Header from '@/components/Header'
 import Subscribe from '@/components/Subscribe'
+import Tags from '@/components/Tags'
 
 export default {
   components: {
     'app-header': Header,
-    'subscribe': Subscribe
+    'subscribe': Subscribe,
+    'tags': Tags
   }
 }
 </script>
@@ -47,5 +53,9 @@ export default {
 
 .main-content {
   margin-top: var(--header-height);
+}
+
+.tags-sidebar {
+  margin-top: 50px;
 }
 </style>

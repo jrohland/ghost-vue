@@ -24,6 +24,12 @@ export default new Router({
     },
     ...pageRoutes,
     {
+      path: '/tag/:tag',
+      name: 'tag',
+      component: () => import(/* webpackChunkName: "posts" */ './views/Posts.vue'),
+      props: true
+    },
+    {
       path: '/:slug',
       name: 'post',
       component: () => import(/* webpackChunkName: "post" */ './views/Post.vue'),

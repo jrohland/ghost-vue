@@ -25,7 +25,7 @@
 
     <div
       v-else
-      class="h-100">
+      class="loading">
 
       <loading-spinner
         :size="200"
@@ -49,12 +49,19 @@ export default {
     return {
       isLoaded: false,
       loadError: null,
-      posts: []
+      posts: [],
+      postLimit: 9
     }
   },
 
   async mounted () {
-    Ghost.getPosts({ limit: 9 })
+    const params = {
+      limit: this.postLimit
+    }
+
+    if (this.$route.params.tag) params.filter = 'tag:' + this.$route.params.tag
+
+    Ghost.getPosts(params)
       .then(posts => {
         this.posts = posts
         this.isLoaded = true

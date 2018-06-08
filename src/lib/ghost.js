@@ -71,5 +71,18 @@ export default {
         })
         .catch(error => reject(error))
     })
+  },
+
+  async getTags (params) {
+    if (!window.ghost) await init()
+
+    return new Promise((resolve, reject) => {
+      Vue.http
+        .get(window.ghost.url.api('tags', params))
+        .then(result => {
+          resolve(result.body.tags)
+        })
+        .catch(error => reject(error))
+    })
   }
 }
