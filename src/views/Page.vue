@@ -4,7 +4,7 @@
       v-if="loadError"
       class="notification is-danger text-align-center">
 
-      <div class="title">Couldn't load post!</div>
+      <div class="title">Couldn't load page!</div>
 
       <div v-if="loadError.errors && loadError.errors.length">
         {{ loadError.errors[0].message }}
@@ -13,23 +13,15 @@
     </div>
 
     <div v-else-if="isLoaded">
-      <div
-        v-if="post.feature_image"
-        :style="featuredImageStyle"
-        class="featured-image" />
 
-      <div class="post standard-shadow">
-
-        <div class="date text-align-center">
-          {{ post.created_at | date }}
-        </div>
+      <div class="page">
 
         <div class="title text-align-center">
           {{ post.title }}
         </div>
 
         <div
-          class="post-body content"
+          class="page-body content"
           v-html="post.html" />
 
       </div>
@@ -72,18 +64,6 @@ export default {
     }
   },
 
-  computed: {
-    featuredImageStyle: {
-      get () {
-        const styles = {}
-        if (this.post.feature_image) {
-          styles.backgroundImage = `url(${this.post.feature_image})`
-        }
-        return styles
-      }
-    }
-  },
-
   mounted () {
     if (this.slug) {
       Ghost.getPostBySlug(this.slug)
@@ -100,20 +80,9 @@ export default {
 </script>
 
 <style scoped>
-.featured-image {
-  width: auto;
-  height: 600px;
-  background: #c5d2d9 no-repeat 50%;
-  background-image: none;
-  background-size: auto auto;
-  background-size: cover;
-  margin-bottom: 10px;
-}
-
-.post {
+.page {
   background-color: #fff;
   width: 90%;
-  margin: -100px auto 0 auto;
   min-height: 200px;
   padding: 30px;
 }
