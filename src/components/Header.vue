@@ -8,6 +8,15 @@
 
       <div class="container">
         <div class="navbar-brand column is-four-fifths">
+
+          <div class="title">
+            <router-link :to="{ name: 'posts' }">{{ title }}</router-link>
+          </div>
+
+          <div
+            class="description"
+            v-html="description" />
+
           <a
             role="button"
             class="menu-icon"
@@ -19,12 +28,6 @@
             <div aria-hidden="true" />
           </a>
 
-          <div class="title">
-            <router-link :to="{ name: 'posts' }">{{ title }}</router-link>
-          </div>
-          <div
-            class="description"
-            v-html="description" />
         </div>
       </div>
     </nav>
@@ -92,6 +95,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$desktop-breakpoint: 1024px;
 $menu_icon_height: 50px;
 $menu_icon_scrolled_height: 30px;
 
@@ -124,12 +128,9 @@ $menu_icon_scrolled_height: 30px;
 }
 
 .menu-icon {
-  position: absolute;
   height: $menu_icon_height;
   width: 50px;
   padding: 5px;
-  top: calc(var(--header-height) / 2 - 40px);
-  left: 50px;
 }
 
 .menu-icon:hover {
@@ -162,7 +163,6 @@ $menu_icon_scrolled_height: 30px;
   font-family: 'Caveat', 'Cormorant Garamond', 'Avenir', Helvetica, Arial, sans-serif;
   display: flex;
   align-self: center;
-  font-size: 4.5rem;
   transition: font-size .5s;
   margin-bottom: 0px !important;
 }
@@ -175,13 +175,6 @@ $menu_icon_scrolled_height: 30px;
   color: var(--header-title-hover-color);
 }
 
-.navbar.scrolled .title {
-  font-size: 2rem;
-  line-height: 60px !important;
-  margin-right: 30px;
-  margin-bottom: 0px;
-}
-
 .description {
   display: flex;
   align-self: center;
@@ -190,5 +183,52 @@ $menu_icon_scrolled_height: 30px;
 
 .navbar.scrolled .description {
   font-size: .8rem;
+}
+
+@media (min-width: $desktop-breakpoint) {
+  .title {
+    font-size: 4.5rem;
+  }
+
+  .navbar.scrolled .title {
+    font-size: 2rem;
+    line-height: 60px !important;
+    margin-right: 30px;
+    margin-bottom: 0px;
+  }
+
+  .menu-icon {
+    position: absolute;
+    top: calc(var(--header-height) / 2 - 40px);
+    left: 50px;
+  }
+}
+
+@media (max-width: $desktop-breakpoint - 1px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .description {
+    font-size: .8rem;
+    margin-bottom: 20px;
+  }
+
+  .menu-icon {
+    margin: 0 auto;
+  }
+
+  .navbar.scrolled .title {
+    font-size: 2.5rem;
+    margin-left: 10px;
+  }
+
+  .navbar.scrolled .description {
+    display: none;
+  }
+
+  .navbar.scrolled .menu-icon {
+    margin: auto 10px auto auto;
+  }
 }
 </style>
