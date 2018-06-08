@@ -5,19 +5,19 @@
 
     <app-header />
 
-    <div class="main-content h-100">
+    <div class="main-content">
 
-      <div class="container h-100">
+      <div class="container">
 
-        <div class="columns h-100">
+        <div class="columns">
 
           <transition
             name="page"
             mode="out-in">
-            <router-view class="main-column column  h-100" />
+            <router-view class="main-column column" />
           </transition>
 
-          <div class="is-one-fifth side-bar">
+          <div class="is-one-fifth column side-bar">
             <subscribe />
           </div>
 
