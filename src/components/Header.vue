@@ -133,7 +133,6 @@ $menu_icon_scrolled_height: 30px;
 }
 
 .menu-icon:hover {
-  background-color: var(--menu-icon-hover-color);
   cursor: pointer;
 }
 
@@ -142,6 +141,10 @@ $menu_icon_scrolled_height: 30px;
   height: 5px;
   background-color: var(--header-title-color);
   margin: calc(((#{$menu_icon_height} - 10px) / 3) / 2) 0;
+}
+
+.menu-icon:hover div {
+  background-color: var(--header-title-hover-color);
 }
 
 .navbar.scrolled .menu-icon {

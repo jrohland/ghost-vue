@@ -103,6 +103,7 @@ export default {
 
 .links {
   margin: 100px 50px;
+  font-family: 'Caveat', 'Cormorant Garamond', 'Avenir', Helvetica, Arial, sans-serif;
   font-size: 50px;
   display: flex;
   flex-direction: column;

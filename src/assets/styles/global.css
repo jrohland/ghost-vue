@@ -3,9 +3,11 @@
   --border-color: #95989a;
   --menu-icon-hover-color: #e4e4e4;
   --header-title-color: #a78be3;
-  --header-title-hover-color: #977bd3;
+  --header-title-hover-color: #775bb3;
   --header-height: 220px;
   --header-scrolled-height: 60px;
+  --link-color: #a78be3;
+  --link-hover-color: #775bb3;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Caveat|Cormorant+Garamond');
@@ -15,6 +17,14 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  color: var(--link-hover-color);
 }
 
 .standard-shadow {
