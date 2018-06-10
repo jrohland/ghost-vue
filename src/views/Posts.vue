@@ -31,15 +31,18 @@
 
         </div>
 
-        <loading-spinner
-          v-if="isLoading"
-          :size="40"
-          class="spinner" />
-
         <div
-          v-else-if="!hasNextPage"
+          v-if="!hasNextPage"
           class="center">
           No more posts found
+        </div>
+
+        <div
+          v-else
+          class="center">
+          <a
+            :class="'button' + ((isLoading) ? ' is-loading' : '')"
+            @click="getNextPosts">Load More</a>
         </div>
 
       </div>
