@@ -1,8 +1,29 @@
 import Vue from 'vue'
 import config from '@/config'
 
+let initialized = false
+let isInitalizing = false
+
 const init = () => {
-  if (window.ghost) return true
+  if (initialized) return true
+
+  if (isInitalizing) {
+    return new Promise((resolve, reject) => {
+      let handle = window.setInterval(() => {
+        if (initialized) {
+          clearInterval(handle)
+          resolve()
+        }
+        ctr++
+        if (ctr > 1000) {
+          reject(new Error('Unable to load ghost sdk'))
+          clearInterval(handle)
+        }
+      }, 5)
+    })
+  }
+
+  isInitalizing = true
 
   const ghostScript = document.createElement('script')
   const src = config.ghost.host + config.ghost.sdkPath
@@ -18,8 +39,10 @@ const init = () => {
           clientSecret: config.ghost.clientSecret
         })
 
-        resolve()
         clearInterval(handle)
+        initialized = true
+        isInitalizing = false
+        resolve()
       }
       ctr++
       if (ctr > 1000) {
@@ -32,7 +55,7 @@ const init = () => {
 
 export default {
   async getPosts (params) {
-    if (!window.ghost) await init()
+    if (!initialized) await init()
 
     return new Promise((resolve, reject) => {
       Vue.http
@@ -45,7 +68,7 @@ export default {
   },
 
   async getPostBySlug (slug) {
-    if (!window.ghost) await init()
+    if (!initialized) await init()
 
     return new Promise((resolve, reject) => {
       Vue.http
@@ -59,7 +82,7 @@ export default {
   },
 
   async addSubscription (data) {
-    if (!window.ghost) await init()
+    if (!initialized) await init()
 
     return new Promise((resolve, reject) => {
       Vue.http
@@ -74,7 +97,7 @@ export default {
   },
 
   async getTags (params) {
-    if (!window.ghost) await init()
+    if (!initialized) await init()
 
     return new Promise((resolve, reject) => {
       Vue.http
