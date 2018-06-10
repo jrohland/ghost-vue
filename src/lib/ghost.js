@@ -61,7 +61,7 @@ export default {
       Vue.http
         .get(window.ghost.url.api('posts', params))
         .then(result => {
-          resolve(result.body.posts)
+          resolve(result.body)
         })
         .catch(error => reject(error))
     })

@@ -20,14 +20,27 @@
         No posts found
       </div>
 
-      <div
-        v-else
-        class="posts columns is-multiline">
+      <div v-else>
 
-        <post-card
-          v-for="post in posts"
-          :key="post.id"
-          :post="post" />
+        <div class="posts columns is-multiline">
+
+          <post-card
+            v-for="post in posts"
+            :key="post.id"
+            :post="post" />
+
+        </div>
+
+        <loading-spinner
+          v-if="isLoading"
+          :size="40"
+          class="spinner" />
+
+        <div
+          v-else-if="!hasNextPage"
+          class="center">
+          No more posts found
+        </div>
 
       </div>
 
@@ -58,27 +71,64 @@ export default {
   data () {
     return {
       isLoaded: false,
+      isLoading: false,
       loadError: null,
       posts: [],
-      postLimit: 9
+      postLimit: 6,
+      page: 0,
+      hasNextPage: true,
+      isScrolledToBottom: false
     }
   },
 
-  async mounted () {
-    const params = {
-      limit: this.postLimit
+  watch: {
+    isScrolledToBottom (isScrolledToBottom) {
+      if (isScrolledToBottom) this.getNextPosts()
     }
+  },
 
-    if (this.$route.params.tag) params.filter = 'tag:' + this.$route.params.tag
+  mounted () {
+    this.getNextPosts()
+    window.addEventListener('scroll', this.scrolledToBottom)
+  },
 
-    Ghost.getPosts(params)
-      .then(posts => {
-        this.posts = posts
-        this.isLoaded = true
-      })
-      .catch(error => {
-        this.loadError = error.body
-      })
+  destroyed () {
+    window.removeEventListener('scroll', this.scrolledToBottom)
+  },
+
+  methods: {
+    getNextPosts () {
+      if (!this.hasNextPage || this.isLoading) return
+
+      this.isLoading = true
+      this.page++
+
+      const params = {
+        limit: this.postLimit,
+        page: this.page
+      }
+
+      if (this.$route.params.tag) params.filter = 'tag:' + this.$route.params.tag
+
+      Ghost.getPosts(params)
+        .then(result => {
+          this.posts.push(...result.posts)
+          this.hasNextPage = result.meta.pagination.next
+          this.isLoaded = true
+          this.isLoading = false
+        })
+        .catch(error => {
+          this.loadError = error.body
+        })
+    },
+
+    scrolledToBottom () {
+      const scrollY = window.scrollY
+      const visible = document.documentElement.clientHeight
+      const pageHeight = document.documentElement.scrollHeight
+      const bottomOfPage = visible + scrollY >= (pageHeight - 10)
+      this.isScrolledToBottom = bottomOfPage || pageHeight < visible
+    }
   }
 }
 </script>
@@ -88,5 +138,9 @@ export default {
   margin: auto;
   position: relative;
   top: calc(50% - 200px);
+}
+
+.center {
+  text-align: center;
 }
 </style>
