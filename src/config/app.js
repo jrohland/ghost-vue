@@ -6,5 +6,10 @@ export default {
       name: 'Contact Me',
       slug: 'contact'
     }
-  ]
+  ],
+  social: {
+    facebook: '',
+    twitter: '',
+    instagram: ''
+  }
 }
