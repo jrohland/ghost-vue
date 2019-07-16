@@ -1,13 +1,13 @@
 <template>
   <div class="column is-one-third">
-
     <div
       class="post standard-shadow"
-      @click="navigateToPost">
-
+      @click="navigateToPost"
+    >
       <div
         :style="featuredImageStyle"
-        class="featured-image" />
+        class="featured-image"
+      />
 
       <div class="date text-align-center">
         {{ post.created_at | date }}
@@ -16,9 +16,7 @@
       <div class="title text-align-center">
         {{ post.title }}
       </div>
-
     </div>
-
   </div>
 </template>
 

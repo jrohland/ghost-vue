@@ -4,30 +4,32 @@
       ref="nav"
       :class="classes"
       role="navigation"
-      aria-label="main navigation">
-
+      aria-label="main navigation"
+    >
       <div class="container">
         <div class="navbar-brand column is-four-fifths">
-
           <div class="title">
-            <router-link :to="{ name: 'posts' }">{{ title }}</router-link>
+            <router-link :to="{ name: 'posts' }">
+              {{ title }}
+            </router-link>
           </div>
 
           <div
             class="description"
-            v-html="description" />
+            v-html="description"
+          />
 
           <a
             role="button"
             class="menu-icon"
             aria-label="menu"
             aria-expanded="false"
-            @click="showSideMenu = !showSideMenu">
+            @click="showSideMenu = !showSideMenu"
+          >
             <div aria-hidden="true" />
             <div aria-hidden="true" />
             <div aria-hidden="true" />
           </a>
-
         </div>
       </div>
     </nav>

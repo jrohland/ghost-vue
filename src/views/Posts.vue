@@ -2,63 +2,62 @@
   <div>
     <div
       v-if="loadError"
-      class="notification is-danger text-align-center">
-
-      <div class="title">Couldn't load posts!</div>
+      class="notification is-danger text-align-center"
+    >
+      <div class="title">
+        Couldn't load posts!
+      </div>
 
       <div v-if="loadError.errors && loadError.errors.length">
         {{ loadError.errors[0].message }}
       </div>
-
     </div>
 
     <div v-else-if="isLoaded">
-
       <div
         v-if="posts.length === 0"
-        class="text-align-center title">
+        class="text-align-center title"
+      >
         No posts found
       </div>
 
       <div v-else>
-
         <div class="posts columns is-multiline">
-
           <post-card
             v-for="post in posts"
             :key="post.id"
-            :post="post" />
-
+            :post="post"
+          />
         </div>
 
         <div
           v-if="!hasNextPage"
-          class="center">
+          class="center"
+        >
           No more posts found
         </div>
 
         <div
           v-else
-          class="center">
+          class="center"
+        >
           <a
             :class="'button' + ((isLoading) ? ' is-loading' : '')"
-            @click="getNextPosts">Load More</a>
+            @click="getNextPosts"
+          >Load More</a>
         </div>
-
       </div>
-
     </div>
 
     <div
       v-else
-      class="loading">
-
+      class="loading"
+    >
       <loading-spinner
         :size="200"
-        class="spinner" />
-
+        class="spinner"
+      />
     </div>
-
   </div>
 </template>
 

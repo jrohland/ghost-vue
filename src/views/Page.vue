@@ -2,41 +2,39 @@
   <div>
     <div
       v-if="loadError"
-      class="notification is-danger text-align-center">
-
-      <div class="title">Couldn't load page!</div>
+      class="notification is-danger text-align-center"
+    >
+      <div class="title">
+        Couldn't load page!
+      </div>
 
       <div v-if="loadError.errors && loadError.errors.length">
         {{ loadError.errors[0].message }}
       </div>
-
     </div>
 
     <div v-else-if="isLoaded">
-
       <div class="page">
-
         <div class="title text-align-center">
           {{ post.title }}
         </div>
 
         <div
           class="page-body content"
-          v-html="post.html" />
-
+          v-html="post.html"
+        />
       </div>
     </div>
 
     <div
       v-else
-      class="h-100">
-
+      class="h-100"
+    >
       <loading-spinner
         :size="200"
-        class="spinner" />
-
+        class="spinner"
+      />
     </div>
-
   </div>
 </template>
 

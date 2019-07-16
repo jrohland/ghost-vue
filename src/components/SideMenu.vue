@@ -1,35 +1,34 @@
 <template>
   <div class="side-menu-container">
-
     <transition name="slide-from-left">
       <div
         v-show="value"
-        class="side-menu standard-shadow">
-
+        class="side-menu standard-shadow"
+      >
         <a
           role="button"
           class="close"
           aria-label="Close"
-          @click="close">&times;</a>
+          @click="close"
+        >&times;</a>
 
         <div class="links">
-
           <a @click="navigate('/')">Home</a>
 
           <a
             v-for="(page, index) in pages"
             :key="index"
-            @click="navigate(page.slug)">{{ page.name }}</a>
-
+            @click="navigate(page.slug)"
+          >{{ page.name }}</a>
         </div>
-
       </div>
     </transition>
 
     <transition name="fade">
       <div
         v-show="value"
-        class="hidden-content-overlay" />
+        class="hidden-content-overlay"
+      />
     </transition>
   </div>
 </template>

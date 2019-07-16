@@ -2,24 +2,25 @@
   <div>
     <div
       v-if="loadError"
-      class="notification is-danger text-align-center">
-
-      <div class="title">Couldn't load post!</div>
+      class="notification is-danger text-align-center"
+    >
+      <div class="title">
+        Couldn't load post!
+      </div>
 
       <div v-if="loadError.errors && loadError.errors.length">
         {{ loadError.errors[0].message }}
       </div>
-
     </div>
 
     <div v-else-if="isLoaded">
       <div
         v-if="post.feature_image"
         :style="featuredImageStyle"
-        class="featured-image" />
+        class="featured-image"
+      />
 
       <div class="post standard-shadow">
-
         <div class="date text-align-center">
           {{ post.created_at | date }}
         </div>
@@ -30,20 +31,19 @@
 
         <div
           class="post-body content"
-          v-html="post.html" />
-
+          v-html="post.html"
+        />
       </div>
     </div>
 
     <div
-      v-else>
-
+      v-else
+    >
       <loading-spinner
         :size="200"
-        class="spinner" />
-
+        class="spinner"
+      />
     </div>
-
   </div>
 </template>
 
