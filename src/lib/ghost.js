@@ -9,7 +9,7 @@ const init = () => {
 
   if (isInitalizing) {
     return new Promise((resolve, reject) => {
-      let handle = window.setInterval(() => {
+      const handle = window.setInterval(() => {
         if (initialized) {
           clearInterval(handle)
           resolve()
@@ -32,7 +32,7 @@ const init = () => {
 
   let ctr = 0
   return new Promise((resolve, reject) => {
-    let handle = window.setInterval(() => {
+    const handle = window.setInterval(() => {
       if (window.ghost) {
         window.ghost.init({
           clientId: config.ghost.clientId,
@@ -87,7 +87,7 @@ export default {
     return new Promise((resolve, reject) => {
       Vue.http
         .post(window.ghost.url.api('subscribers/'), {
-          subscribers: [ data ]
+          subscribers: [data]
         })
         .then(result => {
           resolve()

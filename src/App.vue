@@ -67,8 +67,8 @@ import { app } from '@/config'
 export default {
   components: {
     'app-header': Header,
-    'subscribe': Subscribe,
-    'tags': Tags
+    subscribe: Subscribe,
+    tags: Tags
   },
 
   computed: {
