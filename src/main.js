@@ -10,11 +10,11 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 Vue.use(VueResource)
 Vue.use(FormattersPlugin)
-Vue.component('loading-spinner', LoadingSpinner)
+Vue.component('LoadingSpinner', LoadingSpinner)
 
 // Fontawesome icons
 library.add(faFacebookSquare, faTwitterSquare, faInstagram)
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 

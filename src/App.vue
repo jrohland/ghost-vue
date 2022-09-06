@@ -48,9 +48,9 @@
               </a>
             </div>
 
-            <subscribe class="subscribe-sidebar" />
+            <subscribe-sidebar class="subscribe-sidebar" />
 
-            <tags class="tags-sidebar" />
+            <tag-sidebar class="tags-sidebar" />
           </div>
         </div>
       </div>
@@ -59,16 +59,16 @@
 </template>
 
 <script>
-import Header from '@/components/Header'
-import Subscribe from '@/components/Subscribe'
-import Tags from '@/components/Tags'
+import AppHeader from '@/components/AppHeader'
+import SubscribeSidebar from '@/components/SubscribeSidebar'
+import TagSidebar from '@/components/TagSidebar'
 import { app } from '@/config'
 
 export default {
   components: {
-    'app-header': Header,
-    subscribe: Subscribe,
-    tags: Tags
+    AppHeader,
+    SubscribeSidebar,
+    TagSidebar
   },
 
   computed: {
