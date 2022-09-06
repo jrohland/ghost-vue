@@ -16,15 +16,16 @@
     "dayjs": "^1.6.4",
     "deepmerge": "^2.1.1",
     "sass": "^1.54.8",
-    "vue": "^2.5.16",
+    "vue": "^2.6.14",
     "vue-resource": "^1.5.1",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
     "@vue/cli-plugin-babel": "~5.0.8",
     "@vue/cli-plugin-eslint": "~5.0.8",
+    "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-service": "~5.0.8",
     "@vue/eslint-config-standard": "^6.1.0",
     "eslint": "^7.32.0",
@@ -34,12 +35,11 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^8.0.3",
     "sass-loader": "^7.0.1",
-    "vue-template-compiler": "^2.5.16",
-    "webpack": "^4.9.1"
+    "vue-template-compiler": "^2.6.14"
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not ie <= 8"
+    "not dead"
   ]
 }
